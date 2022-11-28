@@ -159,7 +159,7 @@ class TextRenderTest(unittest.TestCase, helper.BaseTestCase):
         sut = ConsoleRender(event_generator=stdin)
         result = sut.render(question)
 
-        self.assertEqual("ab", result)
+        self.assertEqual("a\tb", result)
 
     def test_TAB_with_autocomplete(self):
         stdin_array = ["a", key.TAB, "b", key.ENTER]
@@ -167,7 +167,7 @@ class TextRenderTest(unittest.TestCase, helper.BaseTestCase):
         message = "Foo message"
         variable = "Bar variable"
 
-        question = questions.Text(variable, message, autocomplete=lambda: "abc")
+        question = questions.Text(variable, message, autocomplete=lambda _text, _state: "abc")
 
         sut = ConsoleRender(event_generator=stdin)
         result = sut.render(question)
