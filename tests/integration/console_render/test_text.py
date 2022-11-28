@@ -167,7 +167,7 @@ class TextRenderTest(unittest.TestCase, helper.BaseTestCase):
         message = "Foo message"
         variable = "Bar variable"
 
-        question = questions.Text(variable, message, autocomplete = lambda: "abc")
+        question = questions.Text(variable, message, autocomplete=lambda: "abc")
 
         sut = ConsoleRender(event_generator=stdin)
         result = sut.render(question)
