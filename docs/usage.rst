@@ -306,7 +306,7 @@ For one-off prompts, you can use the shortcut functions.
 Autocompletion
 ------------------
 
-You can optionally provide an autocompletion function to the ``Text`` question type and the ``Checkbox`` question type's "Other" option.
+You can optionally provide an autocompletion function to the ``Text`` question type and the ``Checkbox`` question type's "Other" option (if enabled.)
 
 The autocompletion function is functionally equivalent to the ``readline.set_completer`` autocompletion function: it is called with the current input string as the first argument and the number of times the user has pressed TAB as the second argument.
 

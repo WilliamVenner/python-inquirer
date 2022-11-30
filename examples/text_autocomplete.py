@@ -1,10 +1,4 @@
-import os
-import sys
-from pprint import pprint
-
-
-sys.path.append(os.path.realpath("."))
-import inquirer  # noqa
+import inquirer
 
 
 suggestions = ["inquirer", "hello", "world", "foo", "bar", "baz", "qux"]
@@ -27,4 +21,4 @@ questions = [
 
 answers = inquirer.prompt(questions)
 
-pprint(answers)
+print(answers)
