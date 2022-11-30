@@ -193,10 +193,13 @@ class TextRenderTest(unittest.TestCase, helper.BaseTestCase):
         message = "Foo message"
         variable = "Bar variable"
 
+        prev_state_cell = None
         def autocomplete_func(text, state):
+            nonlocal prev_state_cell
+
             # Swap state memory
-            prev_state = autocomplete_func.prev_state
-            autocomplete_func.prev_state = state
+            prev_state = prev_state_cell
+            prev_state_cell = state
 
             if state == 0:
                 if prev_state is None:
