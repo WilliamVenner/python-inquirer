@@ -306,12 +306,12 @@ For one-off prompts, you can use the shortcut functions.
 Autocompletion
 ------------------
 
-You can optionally provide an autocompletion function to the ``Text`` question type and the ``Checkbox`` question type's "Other" option (if enabled.)
+You can optionally provide an autocompletion function to the ``Text`` question type and the ``Checkbox`` question type's "Other" option (if enabled).
 
-The autocompletion function is functionally equivalent to the ``readline.set_completer`` autocompletion function: it is called with the current input string as the first argument and the number of times the user has pressed TAB as the second argument.
+The autocompletion function is called with the current input string (``text``) as the first argument and the number of times the user has pressed TAB as the second argument (``state``). If the user changes their input, ``state`` will reset to 0.
 
-This information can be used to provide completion based on what the user has already input, or the number of times the user has pressed TAB, allowing you to cycle through multiple possible completions.
+This information can be used to provide completion based on what the user has already input, and/or the number of times the user has pressed TAB, allowing you to cycle through multiple possible completions.
 
-The function should return what to replace the current input with as a ``str``. Any other types will be ignored.
+The function should return what to replace the entire current input with as a ``str``. Any other types will be ignored.
 
 .. literalinclude:: ../examples/text_autocomplete.py

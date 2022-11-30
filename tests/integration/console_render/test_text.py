@@ -187,6 +187,37 @@ class TextRenderTest(unittest.TestCase, helper.BaseTestCase):
 
         self.assertEqual("ab", result)
 
+    def test_TAB_with_autocomplete_cycle(self):
+        stdin_array = ["a", key.TAB, key.TAB, key.TAB, "b", key.TAB, key.ENTER]
+        stdin = helper.event_factory(*stdin_array)
+        message = "Foo message"
+        variable = "Bar variable"
+
+        def autocomplete_func(text, state):
+            # Swap state memory
+            prev_state = autocomplete_func.prev_state
+            autocomplete_func.prev_state = state
+
+            if state == 0:
+                if prev_state is None:
+                    # First call
+                    pass
+                else:
+                    # After we pressed TAB 3 times and then pressed b, then TAB again
+                    # state should be 0 again
+                    assert prev_state == 2
+                    return "it worked"
+            else:
+                assert state == prev_state + 1
+            return text
+
+        question = questions.Text(variable, message, autocomplete=autocomplete_func)
+
+        sut = ConsoleRender(event_generator=stdin)
+        result = sut.render(question)
+
+        self.assertEqual("it worked", result)
+
     def test_ctrl_c_breaks_execution(self):
         stdin_array = [key.CTRL_C]
         stdin = helper.event_factory(*stdin_array)
