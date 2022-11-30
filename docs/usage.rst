@@ -314,4 +314,4 @@ This information can be used to provide completion based on what the user has al
 
 The function should return what to replace the current input with as a ``str``. Any other types will be ignored.
 
-.. literalinclude:: ../examples/text_autocompletion.py
+.. literalinclude:: ../examples/text_autocomplete.py
