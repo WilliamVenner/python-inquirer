@@ -194,6 +194,7 @@ class TextRenderTest(unittest.TestCase, helper.BaseTestCase):
         variable = "Bar variable"
 
         prev_state_cell = None
+
         def autocomplete_func(text, state):
             nonlocal prev_state_cell
 
