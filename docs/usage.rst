@@ -302,3 +302,16 @@ For one-off prompts, you can use the shortcut functions.
                               "create a new ones. Continue?", default=False)
 
 .. _Examples: examples.html
+
+Autocompletion
+------------------
+
+You can optionally provide an autocompletion function to the ``Text`` question type and the ``Checkbox`` question type's "Other" option.
+
+The autocompletion function is functionally equivalent to the ``readline.set_completer`` autocompletion function: it is called with the current input string as the first argument and the number of times the user has pressed TAB as the second argument.
+
+This information can be used to provide completion based on what the user has already input, or the number of times the user has pressed TAB, allowing you to cycle through multiple possible completions.
+
+The function should return what to replace the current input with as a ``str``.
+
+.. literalinclude:: ../examples/text_autocompletion.py
