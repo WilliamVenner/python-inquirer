@@ -6,6 +6,7 @@ from pprint import pprint
 sys.path.append(os.path.realpath("."))
 import inquirer  # noqa
 
+
 suggestions = ["inquirer", "hello", "world", "foo", "bar", "baz", "qux"]
 
 
