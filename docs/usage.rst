@@ -312,6 +312,6 @@ The autocompletion function is functionally equivalent to the ``readline.set_com
 
 This information can be used to provide completion based on what the user has already input, or the number of times the user has pressed TAB, allowing you to cycle through multiple possible completions.
 
-The function should return what to replace the current input with as a ``str``.
+The function should return what to replace the current input with as a ``str``. Any other types will be ignored.
 
 .. literalinclude:: ../examples/text_autocompletion.py
